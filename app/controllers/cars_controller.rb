@@ -4,6 +4,11 @@ class CarsController < ApplicationController
     render json: cars.as_json
   end
 
+  def show
+    car = Car.find_by(id: params[:id])
+    render car
+  end
+
   def create
     car = Car.new(
       make: params[:make]
